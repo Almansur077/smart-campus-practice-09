@@ -6,12 +6,14 @@ User story: as a student, I want to check a room's availability so that I can ch
 It only decides availability. It never creates or saves a booking.
 
 ## Structure
-- `src/App.tsx`: React UI (form, room info, result banner). It currently also contains the booking rule
-  `checkAvailability`, `formatTime` and the `DEMO_ROOM` fixture.
+- `src/App.tsx`: React UI only (form state, required-field check, input parsing, rendering).
+- `src/domain/availability.ts`: pure booking rule `checkAvailability(room, start, end)` and `formatTime`.
+  No React, no I/O, never writes to its inputs.
+- `src/data/demoRoom.ts`: demo fixture (now = 540, one booking 600-660, not blocked). Treat as read-only.
 - `src/main.tsx`: entry point. `index.html`: Vite page.
-- `tests/ui.regression.test.tsx`: UI characterization tests U01-U13. Do not change or weaken them.
-- Planned module boundary (Practice #09): the pure rule goes to `src/domain/availability.ts` and the fixture
-  to `src/data/demoRoom.ts`. `App.tsx` keeps only UI state, input parsing and rendering.
+- `tests/ui.regression.test.tsx`: UI characterization tests U01-U13 (written before the refactor). Do not change or weaken them.
+- `src/domain/availability.test.ts` (D01-D09, F01, X01) and `src/domain/availability.regression.test.ts` (R01-R08):
+  unit regression tests for the pure rule.
 
 ## Constraints (do not break)
 - AC1: reject start >= end and past requests (start <= now).
