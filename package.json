@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --reporter=verbose",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,8 +16,8 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@testing-library/react": "16.0.1",
     "@testing-library/dom": "10.4.0",
+    "@testing-library/react": "16.0.1",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "4.3.2",
