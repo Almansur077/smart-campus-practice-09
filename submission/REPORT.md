@@ -9,8 +9,9 @@ subtitle: "Apply a small number of useful patterns: refactor the Smart Campus ch
 | **Class time / day** | Thursday, 13:00–16:00 |
 | **AI tool** | Claude Code 2.1.319 (CLI agent), model `claude-opus-5-5` (Claude Opus 5.5). See the note on Bolt below. |
 | **Stack** | React 18 + TypeScript + Vite + Tailwind (same stack as the Bolt project), tests with Vitest 2.1 + Testing Library |
-| **Project** | Folder `smart-campus/` (full source, Git history, tests). Run with `npm install && npm test`. |
-| **Live demo (published)** | https://smart-campus-room-av-cttt.bolt.host (the Bolt build from Practice #08; the refactor does not change behaviour, which was checked against this demo in Section 7) |
+| **Project (GitHub)** | https://github.com/Almansur077/smart-campus-practice-09 (full source, Git history, tests, this report and all evidence). Run with `npm install && npm test`. |
+| **Live demo, Practice #09 (published)** | https://almansur077.github.io/smart-campus-practice-09/ (GitHub Pages, built from this repository) |
+| **Live demo, Practice #08 (before)** | https://smart-campus-room-av-cttt.bolt.host (Bolt Publish), used as the "before" reference in Section 7 |
 | **Date** | 6 November 2026 |
 
 **Note on the tool (honest scope).** The slides use Bolt.new. I used the Claude Code agent for every step instead. Bolt has the same concerns: it is not guaranteed to read `AGENTS.md` by itself, and it has no native skills or hooks. To match the slides, I followed their rules exactly: every prompt is the slide prompt, each step ran in a **fresh agent session** (no memory, no user settings, no MCP), and `AGENTS.md` was only used when the prompt asked the agent to read it. Raw logs of every run are in `evidence/ai_runs/raw_*.jsonl`. The original Bolt export was not in my files any more, so the starting code (`src/App.tsx`) was **restored from the published Bolt build** of Practice #08. Section 7 shows it gives the same 22 UI results as the live demo.
@@ -77,17 +78,17 @@ Response (full: `evidence/ai_runs/response_step4_activate.md`): the log shows `T
 
 > Read the root AGENTS.md and follow it. Implement one focused change for the problem we identified: […] Extract the pure availability function (and formatTime) into src/domain/availability.ts and the fixture into src/data/demoRoom.ts, keeping the existing function signature, messages, check order, UI markup and behaviour unchanged. Apply a pattern only if it solves this identified design problem. Do not add new features or dependencies. Show the files you plan to edit before making changes, then make the change and run npm test and npm run typecheck.
 
-The agent ran the tests first (13/13), made the change, and ran the tests again. **I reviewed the diff line by line** (`evidence/code_diff_refactor.diff`): the rule, helpers and every message string were moved **unchanged**, and `App.tsx` lost 68 lines and gained 2 import lines. No JSX or Tailwind class changed. I then committed it as one separate commit (`523b2e8`).
+The agent ran the tests first (13/13), made the change, and ran the tests again. **I reviewed the diff line by line** (`evidence/code_diff_refactor.diff`): the rule, helpers and every message string were moved **unchanged**, and `App.tsx` lost 68 lines and gained 2 import lines. No JSX or Tailwind class changed. I then committed it as one separate commit (`6f94a9b`).
 
 | Changed file | Change |
 |---|---|
 | `src/domain/availability.ts` | **new**: pure `checkAvailability`, `formatTime`, types, `MAX_MINUTES` (no React, no I/O) |
 | `src/data/demoRoom.ts` | **new**: `DEMO_ROOM` fixture, values unchanged |
 | `src/App.tsx` | rule and fixture removed, 2 imports added. UI, parsing, markup unchanged |
-| `src/domain/availability.test.ts` | **new**: D01–D09, F01, X01 (written by the agent, committed separately as `dfb2592`) |
+| `src/domain/availability.test.ts` | **new**: D01–D09, F01, X01 (written by the agent, committed separately as `10b5eb7`) |
 | `src/domain/availability.regression.test.ts` | **new**: R01–R08 (Step 06) |
 | `AGENTS.md`, `package.json` | AGENTS.md added and updated after the refactor; `test` script made verbose |
-| `tests/ui.regression.test.tsx` | **not changed** (`git diff 9d50ed4 HEAD -- tests` = 0 lines) |
+| `tests/ui.regression.test.tsx` | **not changed** (`git diff d291275 HEAD -- tests` = 0 lines) |
 
 **What the agent changed that I did not ask for in that prompt:** it also wrote a unit-test file (D01–D09). AGENTS.md does ask for "focused regression tests", so I kept it, but in a separate commit so the refactor commit only contains the move.
 
@@ -120,28 +121,28 @@ All 6 injected bugs were caught. One gap the check found: the AI's R-tests do **
 
 | Run | Commit | Result |
 |---|---|---|
-| Baseline, before refactor (`01_baseline_before_refactor.txt`) | `9d50ed4` | **13 passed (13)**, typecheck OK |
-| After refactor, UI tests unchanged (`02_after_refactor_ui_tests_unchanged.txt`) | `523b2e8` | **13 passed (13)**, typecheck OK, build OK |
-| Final full suite (`03_final_full_suite.txt`) | `f95c875` | **3 files, 32 passed (32), 0 failed**, typecheck OK, build OK |
+| Baseline, before refactor (`01_baseline_before_refactor.txt`) | `d291275` | **13 passed (13)**, typecheck OK |
+| After refactor, UI tests unchanged (`02_after_refactor_ui_tests_unchanged.txt`) | `6f94a9b` | **13 passed (13)**, typecheck OK, build OK |
+| Final full suite (`03_final_full_suite.txt`) | `78651fb` | **3 files, 32 passed (32), 0 failed**, typecheck OK, build OK |
 
 ![Before: 13 tests pass](evidence/screenshots/term_01_baseline_before_13_pass.png)
 
 ![After: 32 tests pass, typecheck and build OK](evidence/screenshots/term_02_final_after_32_pass.png)
 
-**UI, before vs after.** A headless Chrome script (`evidence/ui_results.json`) filled the real form for 11 cases at **desktop 1280 px** and **mobile 390 px**. It ran them on the **live Practice #08 demo** (before) and on the **refactored Practice #09 build** (after). Each case was submitted twice to check repeatability and that the room info did not change.
+**UI, before vs after.** A headless Chrome script (`evidence/ui_results.json`) filled the real form for 11 cases at **desktop 1280 px** and **mobile 390 px**. It ran them on the **live Practice #08 demo** (before) and on the **published Practice #09 build on GitHub Pages** (after). Each case was submitted twice to check repeatability and that the room info did not change.
 
 ![UI before vs after: 22/22 identical](evidence/screenshots/term_04_ui_before_after.png)
 
 Result: **22/22 messages identical before and after**, every repeat gave the same answer, and the booking list never changed.
 
-| Before (live Practice #08), desktop | After (Practice #09), desktop |
+| Before (live Practice #08), desktop | After (Practice #09, GitHub Pages), desktop |
 |---|---|
-| ![](evidence/screenshots/before_P08_live_desktop_U09.png) | ![](evidence/screenshots/after_P09_local_desktop_U09.png) |
-| ![](evidence/screenshots/before_P08_live_desktop_U08.png) | ![](evidence/screenshots/after_P09_local_desktop_U08.png) |
+| ![](evidence/screenshots/before_P08_live_desktop_U09.png) | ![](evidence/screenshots/after_P09_pages_desktop_U09.png) |
+| ![](evidence/screenshots/before_P08_live_desktop_U08.png) | ![](evidence/screenshots/after_P09_pages_desktop_U08.png) |
 
 | Before, mobile (overlap) | After, mobile (overlap) | After, mobile (121 min) | After, mobile (blocked) |
 |---|---|---|---|
-| ![](evidence/screenshots/before_P08_live_mobile_U08.png) | ![](evidence/screenshots/after_P09_local_mobile_U08.png) | ![](evidence/screenshots/after_P09_local_mobile_U05.png) | ![](evidence/screenshots/after_P09_local_mobile_U07.png) |
+| ![](evidence/screenshots/before_P08_live_mobile_U08.png) | ![](evidence/screenshots/after_P09_pages_mobile_U08.png) | ![](evidence/screenshots/after_P09_pages_mobile_U05.png) | ![](evidence/screenshots/after_P09_pages_mobile_U07.png) |
 
 ![Git history and changed files](evidence/screenshots/term_05_git_log_diff.png)
 
@@ -149,8 +150,8 @@ Result: **22/22 messages identical before and after**, every repeat gave the sam
 
 Same project state, two **separate fresh sessions**, read-only tools.
 
-* **A (no AGENTS.md mentioned):** *"Suggest a refactoring for this Smart Campus room availability project and say which design patterns you would apply. Do not edit files."* Run on commit `9d50ed4`, before AGENTS.md existed.
-* **B (AGENTS.md explicitly provided):** *"Read the root AGENTS.md first and follow its constraints. Then suggest a refactoring […]"* Run on commit `bb439b5`.
+* **A (no AGENTS.md mentioned):** *"Suggest a refactoring for this Smart Campus room availability project and say which design patterns you would apply. Do not edit files."* Run on commit `d291275`, before AGENTS.md existed.
+* **B (AGENTS.md explicitly provided):** *"Read the root AGENTS.md first and follow its constraints. Then suggest a refactoring […]"* Run on commit `e19e2d1`.
 
 | Criterion | A: without instructions | B: with AGENTS.md |
 |---|---|---|
@@ -172,7 +173,8 @@ Same project state, two **separate fresh sessions**, read-only tools.
 
 # 10. Remaining limitations
 
-* The Practice #09 build is verified locally. The published link is the Practice #08 Bolt build, which gives identical results (Section 7). To refresh it, import `smart-campus/` into Bolt and press Publish.
+* The Practice #09 demo is published on GitHub Pages, not with Bolt's Publish button, because the work was done with Claude Code. It gives the same 22 UI results as the Bolt demo from Practice #08 (Section 7).
+* Commit hashes: the author e-mail was set to my university address before pushing, so the history was rewritten once. The hashes in this report and in `evidence/` are the final ones on GitHub.
 * `src/App.tsx` was restored from the published Bolt build because the original Bolt export was missing. The UI comparison shows identical behaviour.
 * Not fixed on purpose, because fixing would change behaviour: `parseInt` truncates `"660.5"` to `660`; "B-204" is hard-coded in the messages; the fixture's `blocked` field is overridden by the checkbox.
 * No real-phone or screen-reader test. Mobile was checked with Chrome emulation at 390×844.
@@ -182,7 +184,7 @@ Same project state, two **separate fresh sessions**, read-only tools.
 | Path | Content |
 |---|---|
 | `AGENTS.md` | Repository instructions (copy of `smart-campus/AGENTS.md`) |
-| `smart-campus/` | Full project source with Git history (`git log --oneline --graph`) |
+| repository root | Full project source with Git history (`git log --oneline --graph`); report and evidence are in `submission/` |
 | `evidence/ai_runs/prompt_*.md`, `response_*.md`, `raw_*.jsonl` | All prompts, AI responses and raw agent logs (Steps 01, 04, 05, 06, experiment A/B) |
 | `evidence/test_output/01..05_*.txt` | Real terminal outputs |
 | `evidence/ui_results.json` | 44 UI results (2 targets × 2 devices × 11 cases) |

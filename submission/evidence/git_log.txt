@@ -1,10 +1,11 @@
-* d91f9af Update AGENTS.md structure after refactor
-*   d6a8e23 Merge Practice #09 refactor (module boundary + regression tests)
+* 9eb90b4 Add README, submission report and evidence; relative base for static hosting
+* 6183976 Update AGENTS.md structure after refactor
+*   f787f69 Merge Practice #09 refactor (module boundary + regression tests)
 |\  
-| * f95c875 Add Step 6 regression tests R01-R08 (AI-generated, reviewed)
-| * dfb2592 Add domain tests D01-D09, F01, X01 proposed by the AI agent in Step 5
-| * 523b2e8 Refactor: extract pure availability rule and demo fixture from App.tsx (module boundary, no behaviour change)
+| * 78651fb Add Step 6 regression tests R01-R08 (AI-generated, reviewed)
+| * 10b5eb7 Add domain tests D01-D09, F01, X01 proposed by the AI agent in Step 5
+| * 6f94a9b Refactor: extract pure availability rule and demo fixture from App.tsx (module boundary, no behaviour change)
 |/  
-* bb439b5 Add AGENTS.md (project rules, AC1-AC6, commands) and verbose test script
-* 9d50ed4 Add UI characterization tests U01-U13 before refactoring
-* e0694eb Baseline: Smart Campus checker from Practice #08 (source restored from published Bolt build)
+* e19e2d1 Add AGENTS.md (project rules, AC1-AC6, commands) and verbose test script
+* d291275 Add UI characterization tests U01-U13 before refactoring
+* d1397b0 Baseline: Smart Campus checker from Practice #08 (source restored from published Bolt build)

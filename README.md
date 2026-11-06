@@ -7,7 +7,7 @@
 * **Report (PDF):** [`submission/Practice09_Baidildanov_Almansur_Report.pdf`](submission/Practice09_Baidildanov_Almansur_Report.pdf)
 * **Agent instructions:** [`AGENTS.md`](AGENTS.md)
 * **Evidence:** [`submission/evidence/`](submission/evidence/), containing prompts, AI responses, raw agent logs, test outputs and screenshots
-* **Live demo:** see the repository's GitHub Pages link (published from `gh-pages`)
+* **Live demo:** https://almansur077.github.io/smart-campus-practice-09/
 
 ## What changed
 One problem: the booking rule and the demo fixture were inside the React UI file. One pattern: a **small module boundary**.

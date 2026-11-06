@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-06T11:55:54.056Z",
+  "run_at": "2026-11-06T12:15:23.599Z",
   "browser": "Google Chrome (headless, puppeteer-core 23.5.0)",
   "results": [
     {
@@ -355,8 +355,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U01",
@@ -371,8 +371,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U03",
@@ -387,8 +387,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U04",
@@ -403,8 +403,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U05",
@@ -419,8 +419,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U06",
@@ -435,8 +435,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U07",
@@ -451,8 +451,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U08",
@@ -467,8 +467,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U09",
@@ -483,8 +483,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U10",
@@ -499,8 +499,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U11",
@@ -515,8 +515,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "desktop",
       "viewport": "1280x900",
       "id": "U12",
@@ -531,8 +531,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U01",
@@ -547,8 +547,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U03",
@@ -563,8 +563,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U04",
@@ -579,8 +579,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U05",
@@ -595,8 +595,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U06",
@@ -611,8 +611,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U07",
@@ -627,8 +627,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U08",
@@ -643,8 +643,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U09",
@@ -659,8 +659,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U10",
@@ -675,8 +675,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U11",
@@ -691,8 +691,8 @@
       "room_info_unchanged": true
     },
     {
-      "target": "after_P09_local",
-      "url": "http://localhost:4173/",
+      "target": "after_P09_pages",
+      "url": "https://almansur077.github.io/smart-campus-practice-09/",
       "device": "mobile",
       "viewport": "390x844",
       "id": "U12",

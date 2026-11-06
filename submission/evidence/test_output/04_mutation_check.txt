@@ -1,6 +1,6 @@
 # label: 04_mutation_check
 # date:  2026-11-06 16:53:23 +05
-# commit: f95c875
+# commit: 78651fb
 # command: sh ../evidence/mutation_check.sh
 
 M1 | AC4 touching endpoints treated as overlap (< -> <=) | Tests  6 failed | 26 passed (32) | caught by: D07 R01 R07 U09 U10 U13 
