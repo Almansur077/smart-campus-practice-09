@@ -1,0 +1,6 @@
+ src/App.tsx                                |  70 +-------------------
+ src/data/demoRoom.ts                       |   8 +++
+ src/domain/availability.regression.test.ts | 101 +++++++++++++++++++++++++++++
+ src/domain/availability.test.ts            |  99 ++++++++++++++++++++++++++++
+ src/domain/availability.ts                 |  63 ++++++++++++++++++
+ 5 files changed, 273 insertions(+), 68 deletions(-)

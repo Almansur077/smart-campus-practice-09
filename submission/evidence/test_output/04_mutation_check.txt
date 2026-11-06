@@ -1,0 +1,13 @@
+# label: 04_mutation_check
+# date:  2026-11-06 16:53:23 +05
+# commit: f95c875
+# command: sh ../evidence/mutation_check.sh
+
+M1 | AC4 touching endpoints treated as overlap (< -> <=) | Tests  6 failed | 26 passed (32) | caught by: D07 R01 R07 U09 U10 U13 
+M2 | AC2 exactly 120 min rejected (> -> >=) | Tests  4 failed | 28 passed (32) | caught by: D05 R03 R05 U06 
+M3 | AC3 blocked check removed | Tests  4 failed | 28 passed (32) | caught by: D06 D08 R05 U07 
+M4 | AC1 start == now accepted (<= -> <) | Tests  2 failed | 30 passed (32) | caught by: D02 U02 
+M5 | AC1 zero-length accepted (>= -> >) | Tests  2 failed | 30 passed (32) | caught by: D03 U04 
+M6 | AC5 rule mutates bookings (push before success) | Tests  5 failed | 27 passed (32) | caught by: R01 R03 R07 R08 U13 
+--- restored file check:
+      Tests  32 passed (32)

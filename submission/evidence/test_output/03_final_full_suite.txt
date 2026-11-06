@@ -1,0 +1,71 @@
+# label:   03_final_full_suite
+# date:    2026-11-06 16:53:20 +05
+# commit:  f95c875 (refactor-practice-09)
+# node:    v25.6.1
+# command: npm test ; npm run typecheck ; npm run build
+
+
+> smart-campus-room-availability@0.9.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v2.1.2 /Users/almansurbajdildanov/Desktop/Practice_09/smart-campus
+
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D01 AC1 past time is rejected
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D02 AC1 start exactly at now is rejected
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D03 AC1 reversed and zero-length intervals are rejected with distinct messages
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D04 AC1 non-integer / null input and out-of-day times are rejected
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D05 AC2 121 minutes is rejected, exactly 120 is allowed
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D06 AC3 blocked room is rejected
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D07 AC4 overlap is rejected; touching either endpoint is allowed
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D08 check order: duration is reported before blocked, blocked before overlap
+ ✓ src/domain/availability.test.ts > checkAvailability (domain) > D09 AC5 does not mutate input and repeated checks give the same answer
+ ✓ src/domain/availability.test.ts > formatTime > F01 formats minutes as HH:MM including 24:00
+ ✓ src/domain/availability.test.ts > DEMO_ROOM fixture > X01 keeps the documented demo values
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R01 AC1 past time: one minute before now and fully past intervals are rejected; now+1 is allowed
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R02 AC1 reversed interval is rejected, and reported before the past-time check
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R03 AC2 121 minutes is rejected with the exact duration; 120 is allowed
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R04 AC2 121 minutes that also overlaps a booking reports the duration, not the overlap
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R05 AC3 blocked room rejects an otherwise valid free slot, a 120-minute slot and an overlapping slot
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R06 AC4 overlap: partial at either edge, inside, covering and identical intervals are rejected
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R07 AC4 touching endpoints [start, end) is allowed, including a slot that exactly fills a gap
+ ✓ src/domain/availability.regression.test.ts > Regression: AC1-AC5 boundaries on the demo fixture > R08 AC5 fixtures are unchanged: frozen input never throws, DEMO_ROOM is identical after every case
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U01 AC1 past time (start before now=540) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U02 AC1 start exactly at now is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U03 AC1 reversed interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U04 AC1 zero-length interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U05 AC2 121-minute duration is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U06 AC2 exactly 120 minutes is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U07 AC3 blocked room is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U08 AC4 overlap is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U09 AC4 touching the end of a booking (660-720) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U10 AC4 touching the start of a booking (550-600) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U11 AC1 outside the day (end 1441) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U12 AC6 empty start gives a clear message
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U13 AC5 checking twice gives the same answer and the booking list is unchanged
+
+ Test Files  3 passed (3)
+      Tests  32 passed (32)
+   Start at  16:53:20
+   Duration  637ms (transform 48ms, setup 0ms, collect 181ms, tests 128ms, environment 451ms, prepare 121ms)
+
+# exit code: 0
+
+> smart-campus-room-availability@0.9.0 typecheck
+> tsc --noEmit
+
+# exit code: 0
+
+> smart-campus-room-availability@0.9.0 build
+> tsc --noEmit && vite build
+
+vite v5.4.8 building for production...
+transforming...
+✓ 1570 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.42 kB │ gzip:  0.29 kB
+dist/assets/index-BhzfRXwl.css   12.29 kB │ gzip:  3.11 kB
+dist/assets/index-CR0dvJbp.js   153.23 kB │ gzip: 49.07 kB
+✓ built in 741ms
+# exit code: 0

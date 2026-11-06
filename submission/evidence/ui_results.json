@@ -1,0 +1,710 @@
+{
+  "run_at": "2026-11-06T11:55:54.056Z",
+  "browser": "Google Chrome (headless, puppeteer-core 23.5.0)",
+  "results": [
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U01",
+      "case": "past time (AC1)",
+      "input": [
+        "500",
+        "560",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be later than the current time (540 min = 09:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U03",
+      "case": "reversed (AC1)",
+      "input": [
+        "720",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be earlier than end (reversed times are not allowed).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U04",
+      "case": "zero length (AC1)",
+      "input": [
+        "700",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start and end must be different times.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U05",
+      "case": "121 minutes (AC2)",
+      "input": [
+        "720",
+        "841",
+        false
+      ],
+      "message": "UNAVAILABLE | Maximum booking length is 120 minutes; this request is 121 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U06",
+      "case": "exactly 120 (AC2)",
+      "input": [
+        "720",
+        "840",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U07",
+      "case": "blocked room (AC3)",
+      "input": [
+        "660",
+        "720",
+        true
+      ],
+      "message": "UNAVAILABLE | Room B-204 is blocked (demo) and cannot be used.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U08",
+      "case": "overlap (AC4)",
+      "input": [
+        "630",
+        "690",
+        false
+      ],
+      "message": "UNAVAILABLE | Overlaps an existing booking (600–660 min = 10:00–11:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U09",
+      "case": "touching end (AC4)",
+      "input": [
+        "660",
+        "720",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U10",
+      "case": "touching start (AC4)",
+      "input": [
+        "550",
+        "600",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U11",
+      "case": "outside day (AC1)",
+      "input": [
+        "1400",
+        "1441",
+        false
+      ],
+      "message": "UNAVAILABLE | Times must be within the same day: 0 to 1440 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U12",
+      "case": "empty start (AC6)",
+      "input": [
+        "",
+        "720",
+        false
+      ],
+      "message": "UNAVAILABLE | Start is required.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U01",
+      "case": "past time (AC1)",
+      "input": [
+        "500",
+        "560",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be later than the current time (540 min = 09:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U03",
+      "case": "reversed (AC1)",
+      "input": [
+        "720",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be earlier than end (reversed times are not allowed).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U04",
+      "case": "zero length (AC1)",
+      "input": [
+        "700",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start and end must be different times.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U05",
+      "case": "121 minutes (AC2)",
+      "input": [
+        "720",
+        "841",
+        false
+      ],
+      "message": "UNAVAILABLE | Maximum booking length is 120 minutes; this request is 121 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U06",
+      "case": "exactly 120 (AC2)",
+      "input": [
+        "720",
+        "840",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U07",
+      "case": "blocked room (AC3)",
+      "input": [
+        "660",
+        "720",
+        true
+      ],
+      "message": "UNAVAILABLE | Room B-204 is blocked (demo) and cannot be used.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U08",
+      "case": "overlap (AC4)",
+      "input": [
+        "630",
+        "690",
+        false
+      ],
+      "message": "UNAVAILABLE | Overlaps an existing booking (600–660 min = 10:00–11:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U09",
+      "case": "touching end (AC4)",
+      "input": [
+        "660",
+        "720",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U10",
+      "case": "touching start (AC4)",
+      "input": [
+        "550",
+        "600",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U11",
+      "case": "outside day (AC1)",
+      "input": [
+        "1400",
+        "1441",
+        false
+      ],
+      "message": "UNAVAILABLE | Times must be within the same day: 0 to 1440 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "before_P08_live",
+      "url": "https://smart-campus-room-av-cttt.bolt.host",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U12",
+      "case": "empty start (AC6)",
+      "input": [
+        "",
+        "720",
+        false
+      ],
+      "message": "UNAVAILABLE | Start is required.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U01",
+      "case": "past time (AC1)",
+      "input": [
+        "500",
+        "560",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be later than the current time (540 min = 09:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U03",
+      "case": "reversed (AC1)",
+      "input": [
+        "720",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be earlier than end (reversed times are not allowed).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U04",
+      "case": "zero length (AC1)",
+      "input": [
+        "700",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start and end must be different times.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U05",
+      "case": "121 minutes (AC2)",
+      "input": [
+        "720",
+        "841",
+        false
+      ],
+      "message": "UNAVAILABLE | Maximum booking length is 120 minutes; this request is 121 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U06",
+      "case": "exactly 120 (AC2)",
+      "input": [
+        "720",
+        "840",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U07",
+      "case": "blocked room (AC3)",
+      "input": [
+        "660",
+        "720",
+        true
+      ],
+      "message": "UNAVAILABLE | Room B-204 is blocked (demo) and cannot be used.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U08",
+      "case": "overlap (AC4)",
+      "input": [
+        "630",
+        "690",
+        false
+      ],
+      "message": "UNAVAILABLE | Overlaps an existing booking (600–660 min = 10:00–11:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U09",
+      "case": "touching end (AC4)",
+      "input": [
+        "660",
+        "720",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U10",
+      "case": "touching start (AC4)",
+      "input": [
+        "550",
+        "600",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U11",
+      "case": "outside day (AC1)",
+      "input": [
+        "1400",
+        "1441",
+        false
+      ],
+      "message": "UNAVAILABLE | Times must be within the same day: 0 to 1440 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "viewport": "1280x900",
+      "id": "U12",
+      "case": "empty start (AC6)",
+      "input": [
+        "",
+        "720",
+        false
+      ],
+      "message": "UNAVAILABLE | Start is required.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U01",
+      "case": "past time (AC1)",
+      "input": [
+        "500",
+        "560",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be later than the current time (540 min = 09:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U03",
+      "case": "reversed (AC1)",
+      "input": [
+        "720",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start must be earlier than end (reversed times are not allowed).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U04",
+      "case": "zero length (AC1)",
+      "input": [
+        "700",
+        "700",
+        false
+      ],
+      "message": "UNAVAILABLE | Start and end must be different times.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U05",
+      "case": "121 minutes (AC2)",
+      "input": [
+        "720",
+        "841",
+        false
+      ],
+      "message": "UNAVAILABLE | Maximum booking length is 120 minutes; this request is 121 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U06",
+      "case": "exactly 120 (AC2)",
+      "input": [
+        "720",
+        "840",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U07",
+      "case": "blocked room (AC3)",
+      "input": [
+        "660",
+        "720",
+        true
+      ],
+      "message": "UNAVAILABLE | Room B-204 is blocked (demo) and cannot be used.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U08",
+      "case": "overlap (AC4)",
+      "input": [
+        "630",
+        "690",
+        false
+      ],
+      "message": "UNAVAILABLE | Overlaps an existing booking (600–660 min = 10:00–11:00).",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U09",
+      "case": "touching end (AC4)",
+      "input": [
+        "660",
+        "720",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U10",
+      "case": "touching start (AC4)",
+      "input": [
+        "550",
+        "600",
+        false
+      ],
+      "message": "AVAILABLE | Room B-204 is available for this time.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U11",
+      "case": "outside day (AC1)",
+      "input": [
+        "1400",
+        "1441",
+        false
+      ],
+      "message": "UNAVAILABLE | Times must be within the same day: 0 to 1440 minutes.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    },
+    {
+      "target": "after_P09_local",
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "viewport": "390x844",
+      "id": "U12",
+      "case": "empty start (AC6)",
+      "input": [
+        "",
+        "720",
+        false
+      ],
+      "message": "UNAVAILABLE | Start is required.",
+      "repeat_same": true,
+      "room_info_unchanged": true
+    }
+  ]
+}

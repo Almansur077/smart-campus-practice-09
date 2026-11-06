@@ -1,0 +1,1 @@
+Inspect this Smart Campus room availability project. Do not change files yet. Identify the booking-rule function, UI, fixture data and tests. List at most three maintainability problems with file references. Recommend ZERO, ONE or TWO patterns only if justified. Preserve AC1–AC6 and the existing UI.

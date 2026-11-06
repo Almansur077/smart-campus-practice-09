@@ -1,0 +1,23 @@
+desktop U01  SAME stable | UNAVAILABLE | Start must be later than the current time (540 min = 09:00).
+desktop U03  SAME stable | UNAVAILABLE | Start must be earlier than end (reversed times are not allowed).
+desktop U04  SAME stable | UNAVAILABLE | Start and end must be different times.
+desktop U05  SAME stable | UNAVAILABLE | Maximum booking length is 120 minutes; this request is 121 minutes.
+desktop U06  SAME stable | AVAILABLE | Room B-204 is available for this time.
+desktop U07  SAME stable | UNAVAILABLE | Room B-204 is blocked (demo) and cannot be used.
+desktop U08  SAME stable | UNAVAILABLE | Overlaps an existing booking (600–660 min = 10:00–11:00).
+desktop U09  SAME stable | AVAILABLE | Room B-204 is available for this time.
+desktop U10  SAME stable | AVAILABLE | Room B-204 is available for this time.
+desktop U11  SAME stable | UNAVAILABLE | Times must be within the same day: 0 to 1440 minutes.
+desktop U12  SAME stable | UNAVAILABLE | Start is required.
+mobile U01   SAME stable | UNAVAILABLE | Start must be later than the current time (540 min = 09:00).
+mobile U03   SAME stable | UNAVAILABLE | Start must be earlier than end (reversed times are not allowed).
+mobile U04   SAME stable | UNAVAILABLE | Start and end must be different times.
+mobile U05   SAME stable | UNAVAILABLE | Maximum booking length is 120 minutes; this request is 121 minutes.
+mobile U06   SAME stable | AVAILABLE | Room B-204 is available for this time.
+mobile U07   SAME stable | UNAVAILABLE | Room B-204 is blocked (demo) and cannot be used.
+mobile U08   SAME stable | UNAVAILABLE | Overlaps an existing booking (600–660 min = 10:00–11:00).
+mobile U09   SAME stable | AVAILABLE | Room B-204 is available for this time.
+mobile U10   SAME stable | AVAILABLE | Room B-204 is available for this time.
+mobile U11   SAME stable | UNAVAILABLE | Times must be within the same day: 0 to 1440 minutes.
+mobile U12   SAME stable | UNAVAILABLE | Start is required.
+ALL BEFORE/AFTER MESSAGES IDENTICAL

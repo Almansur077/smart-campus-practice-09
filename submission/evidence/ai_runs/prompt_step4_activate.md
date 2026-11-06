@@ -1,0 +1,1 @@
+Read the root AGENTS.md before making changes. Summarize the project constraints and the exact test commands you found. Do not edit anything yet. If you cannot read AGENTS.md, tell me and I will paste its content. Do not claim that AGENTS.md was automatically loaded.

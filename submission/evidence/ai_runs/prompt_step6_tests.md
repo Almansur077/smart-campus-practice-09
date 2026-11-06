@@ -1,0 +1,1 @@
+Read the root AGENTS.md and follow it. Create or update regression tests for: past time, reversed interval, 121-minute duration, blocked room, overlap, touching endpoints and unchanged fixtures. Explain each expected result from AC1–AC6. Do not weaken or delete existing assertions. Then run npm test and npm run typecheck and report the real output.

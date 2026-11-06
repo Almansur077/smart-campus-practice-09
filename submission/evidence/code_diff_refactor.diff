@@ -1,0 +1,164 @@
+diff --git a/src/App.tsx b/src/App.tsx
+index 9b75484..d37a0ba 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -8,74 +8,8 @@ import {
+   Info,
+   ShieldAlert,
+ } from 'lucide-react';
+-
+-type Booking = { start: number; end: number };
+-type RoomState = { now: number; blocked: boolean; bookings: Booking[] };
+-type Result = { available: boolean; message: string };
+-
+-const MAX_MINUTES = 120;
+-const DAY_MINUTES = 1440;
+-
+-function isWholeMinute(value: unknown): value is number {
+-  return typeof value === 'number' && Number.isFinite(value) && Number.isInteger(value);
+-}
+-
+-function overlaps(start: number, end: number, booking: Booking): boolean {
+-  return start < booking.end && end > booking.start;
+-}
+-
+-function checkAvailability(room: RoomState, start: number | null, end: number | null): Result {
+-  if (!isWholeMinute(start) || !isWholeMinute(end)) {
+-    return { available: false, message: 'Start and end must be whole-number minutes (integers).' };
+-  }
+-  if (start < 0 || end > DAY_MINUTES) {
+-    return { available: false, message: 'Times must be within the same day: 0 to 1440 minutes.' };
+-  }
+-  if (start >= end) {
+-    return start === end
+-      ? { available: false, message: 'Start and end must be different times.' }
+-      : { available: false, message: 'Start must be earlier than end (reversed times are not allowed).' };
+-  }
+-  if (start <= room.now) {
+-    return {
+-      available: false,
+-      message: `Start must be later than the current time (${room.now} min = ${formatTime(room.now)}).`,
+-    };
+-  }
+-  const duration = end - start;
+-  if (duration > MAX_MINUTES) {
+-    return {
+-      available: false,
+-      message: `Maximum booking length is ${MAX_MINUTES} minutes; this request is ${duration} minutes.`,
+-    };
+-  }
+-  if (room.blocked) {
+-    return { available: false, message: 'Room B-204 is blocked (demo) and cannot be used.' };
+-  }
+-  for (const booking of room.bookings) {
+-    if (overlaps(start, end, booking)) {
+-      return {
+-        available: false,
+-        message: `Overlaps an existing booking (${booking.start}–${booking.end} min = ${formatTime(booking.start)}–${formatTime(booking.end)}).`,
+-      };
+-    }
+-  }
+-  return { available: true, message: 'Room B-204 is available for this time.' };
+-}
+-
+-function formatTime(minutes: number): string {
+-  if (minutes === DAY_MINUTES) return '24:00';
+-  const m = ((minutes % DAY_MINUTES) + DAY_MINUTES) % DAY_MINUTES;
+-  const h = Math.floor(m / 60);
+-  const mm = m % 60;
+-  return `${String(h).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+-}
+-
+-const DEMO_ROOM: RoomState = {
+-  now: 540,
+-  blocked: false,
+-  bookings: [{ start: 600, end: 660 }],
+-};
++import { checkAvailability, formatTime, MAX_MINUTES, type Result, type RoomState } from './domain/availability';
++import { DEMO_ROOM } from './data/demoRoom';
+ 
+ function validateRequired(start: string, end: string): { field: 'start' | 'end'; message: string } | null {
+   if (start.trim() === '') return { field: 'start', message: 'Start is required.' };
+diff --git a/src/data/demoRoom.ts b/src/data/demoRoom.ts
+new file mode 100644
+index 0000000..e05bb01
+--- /dev/null
++++ b/src/data/demoRoom.ts
+@@ -0,0 +1,8 @@
++// Fictional demo fixture for room B-204. Treat as read-only; App copies it into state.
++import type { RoomState } from '../domain/availability';
++
++export const DEMO_ROOM: RoomState = {
++  now: 540,
++  blocked: false,
++  bookings: [{ start: 600, end: 660 }],
++};
+diff --git a/src/domain/availability.ts b/src/domain/availability.ts
+new file mode 100644
+index 0000000..74428ee
+--- /dev/null
++++ b/src/domain/availability.ts
+@@ -0,0 +1,63 @@
++// Pure booking rule for room availability (AC1-AC5). No React, no I/O, no mutation.
++
++export type Booking = { start: number; end: number };
++export type RoomState = { now: number; blocked: boolean; bookings: Booking[] };
++export type Result = { available: boolean; message: string };
++
++export const MAX_MINUTES = 120;
++const DAY_MINUTES = 1440;
++
++function isWholeMinute(value: unknown): value is number {
++  return typeof value === 'number' && Number.isFinite(value) && Number.isInteger(value);
++}
++
++function overlaps(start: number, end: number, booking: Booking): boolean {
++  return start < booking.end && end > booking.start;
++}
++
++export function checkAvailability(room: RoomState, start: number | null, end: number | null): Result {
++  if (!isWholeMinute(start) || !isWholeMinute(end)) {
++    return { available: false, message: 'Start and end must be whole-number minutes (integers).' };
++  }
++  if (start < 0 || end > DAY_MINUTES) {
++    return { available: false, message: 'Times must be within the same day: 0 to 1440 minutes.' };
++  }
++  if (start >= end) {
++    return start === end
++      ? { available: false, message: 'Start and end must be different times.' }
++      : { available: false, message: 'Start must be earlier than end (reversed times are not allowed).' };
++  }
++  if (start <= room.now) {
++    return {
++      available: false,
++      message: `Start must be later than the current time (${room.now} min = ${formatTime(room.now)}).`,
++    };
++  }
++  const duration = end - start;
++  if (duration > MAX_MINUTES) {
++    return {
++      available: false,
++      message: `Maximum booking length is ${MAX_MINUTES} minutes; this request is ${duration} minutes.`,
++    };
++  }
++  if (room.blocked) {
++    return { available: false, message: 'Room B-204 is blocked (demo) and cannot be used.' };
++  }
++  for (const booking of room.bookings) {
++    if (overlaps(start, end, booking)) {
++      return {
++        available: false,
++        message: `Overlaps an existing booking (${booking.start}–${booking.end} min = ${formatTime(booking.start)}–${formatTime(booking.end)}).`,
++      };
++    }
++  }
++  return { available: true, message: 'Room B-204 is available for this time.' };
++}
++
++export function formatTime(minutes: number): string {
++  if (minutes === DAY_MINUTES) return '24:00';
++  const m = ((minutes % DAY_MINUTES) + DAY_MINUTES) % DAY_MINUTES;
++  const h = Math.floor(m / 60);
++  const mm = m % 60;
++  return `${String(h).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
++}

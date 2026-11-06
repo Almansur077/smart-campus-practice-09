@@ -1,0 +1,26 @@
+# label:   01_baseline_before_refactor
+# date:    2026-11-06 16:47:41 +05
+# commit:  9d50ed4 (main)
+# node:    v25.6.1
+# command: npm test && npm run typecheck
+
+
+> smart-campus-room-availability@0.9.0 test
+> vitest run
+
+
+ RUN  v2.1.2 /Users/almansurbajdildanov/Desktop/Practice_09/smart-campus
+
+ ✓ tests/ui.regression.test.tsx  (13 tests) 121ms
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  16:47:41
+   Duration  598ms (transform 27ms, setup 0ms, collect 124ms, tests 121ms, environment 132ms, prepare 30ms)
+
+# exit code: 0
+
+> smart-campus-room-availability@0.9.0 typecheck
+> tsc --noEmit
+
+# exit code: 0

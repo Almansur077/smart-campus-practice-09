@@ -1,0 +1,52 @@
+# label:   02_after_refactor_ui_tests_unchanged
+# date:    2026-11-06 16:51:42 +05
+# commit:  523b2e8 (refactor-practice-09)
+# node:    v25.6.1
+# command: npm test ; npm run typecheck ; npm run build
+
+
+> smart-campus-room-availability@0.9.0 test
+> vitest run --reporter=verbose
+
+
+ RUN  v2.1.2 /Users/almansurbajdildanov/Desktop/Practice_09/smart-campus
+
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U01 AC1 past time (start before now=540) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U02 AC1 start exactly at now is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U03 AC1 reversed interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U04 AC1 zero-length interval is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U05 AC2 121-minute duration is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U06 AC2 exactly 120 minutes is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U07 AC3 blocked room is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U08 AC4 overlap is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U09 AC4 touching the end of a booking (660-720) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U10 AC4 touching the start of a booking (550-600) is allowed
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U11 AC1 outside the day (end 1441) is rejected
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U12 AC6 empty start gives a clear message
+ ✓ tests/ui.regression.test.tsx > UI regression: AC1-AC6 through the form > U13 AC5 checking twice gives the same answer and the booking list is unchanged
+
+ Test Files  1 passed (1)
+      Tests  13 passed (13)
+   Start at  16:51:42
+   Duration  566ms (transform 28ms, setup 0ms, collect 99ms, tests 119ms, environment 127ms, prepare 28ms)
+
+# exit code: 0
+
+> smart-campus-room-availability@0.9.0 typecheck
+> tsc --noEmit
+
+# exit code: 0
+
+> smart-campus-room-availability@0.9.0 build
+> tsc --noEmit && vite build
+
+vite v5.4.8 building for production...
+transforming...
+✓ 1570 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.42 kB │ gzip:  0.29 kB
+dist/assets/index-BhzfRXwl.css   12.29 kB │ gzip:  3.11 kB
+dist/assets/index-CR0dvJbp.js   153.23 kB │ gzip: 49.07 kB
+✓ built in 737ms
+# exit code: 0
